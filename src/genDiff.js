@@ -3,7 +3,8 @@ import _ from 'lodash';
 const calculateDiff = (data1, data2) => {
   const key1 = Object.keys(data1);
   const key2 = Object.keys(data2);
-  const dataKeys = _.union(key1, key2).sort();
+  const uniqKeys = _.union(key1, key2);
+  const dataKeys = _.sortBy(uniqKeys);
   const add = (key) => {
     if (!_.has(data1, key)) {
       return { name: key, status: 'added', value: data2[key] };
