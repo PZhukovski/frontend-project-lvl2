@@ -4,27 +4,16 @@ import plain from './plain.js';
 
 import json from './json.js';
 
-/* const formatData = (data, format) => {
-    switch (format) {
-      case 'plain':
-        return plain(data);
-      case 'json':
-        return json(data);
-      case 'stylish':
-        return stylish(data);
-      default:
-        return `error: ${format} is invalid format`;
-    }
-  };
-export default formatData;  */
-
-const formats = {
-  stylish,
-  plain,
-  json,
+const formatData = (ast, format) => {
+  switch (format) {
+    case 'plain':
+      return plain(ast);
+    case 'json':
+      return json(ast);
+    case 'stylish':
+      return stylish(ast);
+    default:
+      return `error: ${format} is invalid format`;
+  }
 };
-
-export default (diff, format) => {
-  const getFormatType = formats[format];
-  return getFormatType(diff);
-};
+export default formatData;
